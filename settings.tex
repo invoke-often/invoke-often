@@ -26,12 +26,11 @@
 \usepackage{xparse}
 \usepackage{xpatch}
 \newenvironment{tightverse}
-               {\vspace{-\itemsep}\begin{verse}}
-               {\vspace{-\itemsep}\end{verse}}
+  {\vspace{-\itemsep}\begin{verse}}
+  {\vspace{-\itemsep}\end{verse}}
 \xpatchcmd{\verse}{\itemsep}{\advance\topsep-\parskip\itemsep}{}{}
 \usepackage{marvosym}
 \setlength{\parskip}{0.0pt}
-% \frenchspacing
 
 \newfontfamily\DejaVu[Ligatures=TeX]{DejaVu Serif} % Ancient Greek e.g. Qoppa
 \addtokomafont{title}{\bfseries\rmfamily}
@@ -44,13 +43,11 @@
 \usepackage{relsize}
 \newcommand\chapnum[1]{{\smallskip\bfseries\centering#1\par}}
 \usepackage{wasysym}
-\newcommand\PParNum[1]{\makebox[-5pt][r]{#1\rule{0pt}{0pt}}  \-\ \-\ \ignorespaces} 
-% Typeset Hymn to Satan
+\newcommand\PParNum[1]{\makebox[-5pt][r]{#1\rule{0pt}{0pt}}  \-\ \-\ \ignorespaces}
+% Typesets Hymn to Satan
 \newenvironment{Verse}
   {\center\varwidth{\linewidth}\begin{verse}}
-  {\end{verse}\endvarwidth\endcenter}    
-
-% For non-instruction-style paragraph text
+  {\end{verse}\endvarwidth\endcenter}
 
 % To justify text left and right on the same line
 \newcommand\lwenv[2]{%
@@ -59,13 +56,7 @@
   \parbox{.5\textwidth}{\begin{RaggedLeft}{#2}\end{RaggedLeft}}%
   \par}
 
-\newcommand\GreekTHELEMA{ΘΕΛΗΜΑ}
-\newcommand\GreekThelema{Θελημα} 
-\newcommand\GreekAGAPE{ΑΓΑΠΗ}
-\newcommand\GreekAgape{Αγαπη}
-\newcommand\GreekBABALON{ΒΑΒΑΛΟΝ}
 \newcommand\GreekBabalon{Βαβαλον}
-\newcommand\YHVH{\cjRL{yhvh}}
 \newcommand\Argentium{$A\therefore{}A\therefore$}
 \newcommand\GD{$G\therefore{}{}D\therefore$}
 \newcommand\aethyr{\ae{}thyr}
@@ -73,5 +64,5 @@
 
 \DeclareRobustCommand{\editorsnote}[1]{\begin{footnote}{{#1} --- \textsc{Editor}.}\end{footnote}}
 \newenvironment{Facing}
-               {\csname @openrightfalse\endcsname}
-               {\csname @openrighttrue\endcsname}    
+  {\csname @openrightfalse\endcsname}
+  {\csname @openrighttrue\endcsname}
