@@ -1,0 +1,77 @@
+\usepackage[hidelinks=true,unicode=true,psdextra]{hyperref}
+\usepackage{epigraph}
+\usepackage[british]{babel} % Sets csquotes language
+\usepackage[autostyle=true]{csquotes} % To easily Americanise it.
+\usepackage{ulem} % strikeout
+\usepackage{graphicx} % For included images in place of inline pentagrams, hexagrams.
+\usepackage{cjhebrew}
+
+\usepackage{amsmath} % For \therefore
+\usepackage{amssymb} % For \therefore
+
+\usepackage{ebgaramond} % main font
+\usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.
+
+\usepackage{enumerate}
+\usepackage{moreenum}
+\setlist{nosep}
+\usepackage{ragged2e} % lwenv built from this
+\usepackage{varwidth} % For centre verse environment
+\usepackage[hang,flushmargin]{footmisc}
+\setlength\epigraphwidth{.93\textwidth}
+\usepackage[indentfirst=true]{quoting}
+\quotingsetup{vskip=0pt}
+\usepackage[shortcuts]{extdash}
+\usepackage{indentfirst}
+\usepackage{xparse}
+\usepackage{xpatch}
+\newenvironment{tightverse}
+               {\vspace{-\itemsep}\begin{verse}}
+               {\vspace{-\itemsep}\end{verse}}
+\xpatchcmd{\verse}{\itemsep}{\advance\topsep-\parskip\itemsep}{}{}
+\usepackage{marvosym}
+\setlength{\parskip}{0.0pt}
+% \frenchspacing
+
+\newfontfamily\DejaVu[Ligatures=TeX]{DejaVu Serif} % Ancient Greek e.g. Qoppa
+\addtokomafont{title}{\bfseries\rmfamily}
+\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
+\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{9}{2}\selectfont\scshape}
+\addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{8}{2}\selectfont}
+\renewcommand{\raggedsection}{\centering\rmfamily\bfseries}
+\addtokomafont{disposition}{\centering\rmfamily\bfseries}
+
+\usepackage{relsize}
+\newcommand\chapnum[1]{{\smallskip\bfseries\centering#1\par}}
+\usepackage{wasysym}
+\newcommand\PParNum[1]{\makebox[-5pt][r]{#1\rule{0pt}{0pt}}  \-\ \-\ \ignorespaces} 
+% Typeset Hymn to Satan
+\newenvironment{Verse}
+  {\center\varwidth{\linewidth}\begin{verse}}
+  {\end{verse}\endvarwidth\endcenter}    
+
+% For non-instruction-style paragraph text
+
+% To justify text left and right on the same line
+\newcommand\lwenv[2]{%
+  \par\smallskip
+  \parbox{.5\textwidth}{\begin{RaggedRight}{#1}\end{RaggedRight}}%
+  \parbox{.5\textwidth}{\begin{RaggedLeft}{#2}\end{RaggedLeft}}%
+  \par}
+
+\newcommand\GreekTHELEMA{ΘΕΛΗΜΑ}
+\newcommand\GreekThelema{Θελημα} 
+\newcommand\GreekAGAPE{ΑΓΑΠΗ}
+\newcommand\GreekAgape{Αγαπη}
+\newcommand\GreekBABALON{ΒΑΒΑΛΟΝ}
+\newcommand\GreekBabalon{Βαβαλον}
+\newcommand\YHVH{\cjRL{yhvh}}
+\newcommand\Argentium{$A\therefore{}A\therefore$}
+\newcommand\GD{$G\therefore{}{}D\therefore$}
+\newcommand\aethyr{\ae{}thyr}
+\newcommand\AEthyr{\AE{}thyr}
+
+\DeclareRobustCommand{\editorsnote}[1]{\begin{footnote}{{#1} --- \textsc{Editor}.}\end{footnote}}
+\newenvironment{Facing}
+               {\csname @openrightfalse\endcsname}
+               {\csname @openrighttrue\endcsname}    

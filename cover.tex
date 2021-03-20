@@ -1,0 +1,96 @@
+% Amazon
+\documentclass[markcolor=black, trimmed=false, coverheight=175mm, coverwidth=125mm, spinewidth=0.43in, bleedwidth=0.345in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% Lulu Pocket
+% \documentclass[trimmed=false, coverheight=165mm, coverwidth=102mm, spinewidth=0.504in, bleedwidth=0.345in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% Paperback
+% \documentclass[trimmed=
+% false, coverheight=198mm, coverwidth=143mm, spinewidth=0.423in, bleedwidth=0.345in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\usepackage{pst-barcode}
+\usepackage{ebgaramond}
+\usepackage{fontspec}
+\usepackage{xparse}
+\usepackage[protrusion,final]{microtype}
+\NewDocumentCommand{\UnicursalHexagram}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \draw[black,line width=2.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+    \draw[white,line width=1.1mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\PlainUnicursalHexagram}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+  \end{tikzpicture}
+}
+
+\begin{document}
+\begin{bookcover}
+\bookcovercomponent{color}{bg whole}{white}
+\bookcovercomponent{color}{bg spine}{white}
+% \bookcovercomponent{tikz clip}{spine}{
+%   \draw[black, line width=1.0mm] (part.north west) -- (part.north east);
+% }
+% \bookcovercomponent{tikz clip}{spine}{
+%   \draw[black, line width=1.0mm] (part.south west) -- (part.south east);
+% }
+% \bookcovercomponent{tikz clip}{back}{
+%   \draw[black, line width=1.0mm] (part.south west) rectangle (125mm,175mm);
+% }
+% \bookcovercomponent{tikz clip}{front}{
+%   \draw[black, line width=1.0mm] (part.south west) rectangle (125mm,175mm);
+% }
+\bookcovercomponent{normal}{front}{
+  \begin{center}
+  \vspace*{\fill}
+  \fontsize{32pt}{0em}\textsc{\textcolor{black}{Invoke Often!}}
+
+  \vspace{1.0cm}
+
+  \UnicursalHexagram{2.10}
+
+  \vspace{1.0cm}
+
+  \fontsize{16pt}{0em}\textit{\textcolor{black}{Instructions, Rituals, \& the Great Work}}
+
+  \vspace*{\fill}
+  \end{center}
+}
+\bookcovercomponent{center}{spine}{
+  \vspace*{\fill}
+  \rotatebox[origin=c]{-90}{
+    \color{black}\LARGE
+    \hspace*{\fill}\textcolor{black}{Invoke Often!}\hspace*{\fill}
+
+    \hspace{3.25em}
+
+    
+
+    \hspace{3.25em}
+
+    \hspace*{\fill}\textcolor{black}{Aleister Crowley}\hspace*{\fill}}
+  \vspace*{\fill}
+}
+\bookcovercomponent{normal}{back}{
+  \begin{center}
+  \vspace*{\fill}
+  \vspace{3.3cm}
+  \fontsize{24pt}{0em}\textsc{Αυμγν.}
+
+  \vspace{24pt}
+
+  \fontsize{24pt}{0em}\textsc{Abrahadabra.}
+  \end{center}
+  \vspace*{\fill}
+  \setlength{\fboxsep}{2mm}
+  \hspace*{\fill}\colorbox{white}{%
+    \begin{pspicture}(1.0in,0.50in)
+      \psbarcode{978-1-7775282-0-1}{includetext width=1.0 height=0.50}{isbn}
+    \end{pspicture}
+  }
+  \hspace{0.5in}
+}
+\end{bookcover}
+\end{document}
