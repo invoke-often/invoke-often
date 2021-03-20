@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all clean american-quotes british-quotes clean-pdfs buildclean
 
 BOOKS     = class-d.tex full-book.tex full-ebook.tex invoke-often-ebook.tex invoke-often-book.tex rituals.tex
 BOOKS_OUT:=$(BOOKS:.tex=.pdf)
