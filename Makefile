@@ -1,5 +1,3 @@
-.PHONY: all clean default complete book onscreen crowley rituals bookfull american-quotes british-quotes clean-pdfs buildclean
-
 BOOKS     = class-d.tex full-book.tex full-ebook.tex invoke-often-ebook.tex invoke-often-book.tex rituals.tex
 BOOKS_OUT:=$(BOOKS:.tex=.pdf)
 
@@ -10,8 +8,7 @@ ALL_TEX    = $(BOOKS) $(COVERS)
 ALL_OUT    = $(BOOKS_OUT) $(COVERS_OUT)
 
 OUT_DIR=out
-
-LATEX      = xelatex -interaction=batchmode -output-directory=$(OUT_DIR)
+LATEX      = lualatex -interaction=batchmode -output-directory=$(OUT_DIR)
 
 default: british-quotes full-book.pdf
 complete: full-ebook.pdf
@@ -49,3 +46,5 @@ clean-pdfs:
 	@rm -f out/*.pdf
 
 clean: buildclean clean-pdfs
+
+.PHONY: all clean default complete book onscreen crowley rituals bookfull american-quotes british-quotes clean-pdfs buildclean $(BOOKS)
