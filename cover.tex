@@ -8,15 +8,15 @@
   m % size
 }{
   \begin{tikzpicture}
-    \draw[black,line width=2.2mm] (0,1.2 * #1) \textendash{} (-1.15 * #1,-.65 * #1) \textendash{} (1.15 * #1,.65 * #1) \textendash{} (0,-1.2 * #1) \textendash{} (-1.15 * #1,.65 * #1) \textendash{} (1.15 * #1,-.65 * #1) \textendash{} cycle;
-    \draw[white,line width=1.1mm] (0,1.2 * #1) \textendash{} (-1.15 * #1,-.65 * #1) \textendash{} (1.15 * #1,.65 * #1) \textendash{} (0,-1.2 * #1) \textendash{} (-1.15 * #1,.65 * #1) \textendash{} (1.15 * #1,-.65 * #1) \textendash{} cycle;
+    \draw[black,line width=2.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+    \draw[white,line width=1.1mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
   \end{tikzpicture}
 }
 \NewDocumentCommand{\PlainUnicursalHexagram}{
   m % size
 }{
   \begin{tikzpicture}
-    \draw[black,line width=.2mm] (0,1.2 * #1) \textendash{} (-1.15 * #1,-.65 * #1) \textendash{} (1.15 * #1,.65 * #1) \textendash{} (0,-1.2 * #1) \textendash{} (-1.15 * #1,.65 * #1) \textendash{} (1.15 * #1,-.65 * #1) \textendash{} cycle;
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
   \end{tikzpicture}
 }
 
