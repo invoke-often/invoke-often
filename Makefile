@@ -10,6 +10,9 @@ ALL_OUT    = $(BOOKS_OUT) $(COVERS_OUT)
 OUT_DIR=out
 LATEX      = pdflatex -interaction=batchmode -output-directory=$(OUT_DIR)
 
+cover.pdf : cover.tex
+	xelatex -interaction=batchmode -output-directory=$(OUT_DIR) cover.tex
+cover: cover.pdf
 default: british-quotes full-book.pdf
 complete: full-ebook.pdf
 book: invoke-often-book.pdf
@@ -21,12 +24,12 @@ all: clean british-quotes default complete onscreen crowley bookfull rituals
 
 american-quotes:
 	$(info Setting American quotes style ...)
-	@sed -E 's/\\usepackage\[.+\]\{babel\}/\\usepackage\[american\]\{babel\}/' -i settings.tex
+	@sed -E 's/\\usepackage\[.+\]\{babel\}/\\usepackage\[greek, american\]\{babel\}/' -i settings.tex
 	$(info Succeeded.)
 
 british-quotes:
 	$(info Setting British quotes style ...)
-	@sed -E 's/\\usepackage\[.+\]\{babel\}/\\usepackage\[british\]\{babel\}/' -i settings.tex
+	@sed -E 's/\\usepackage\[.+\]\{babel\}/\\usepackage\[greek, british\]\{babel\}/' -i settings.tex
 	$(info Succeeded.)
 
 %.pdf : %.tex
