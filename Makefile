@@ -8,7 +8,7 @@ ALL_TEX    = $(BOOKS) $(COVERS)
 ALL_OUT    = $(BOOKS_OUT) $(COVERS_OUT)
 
 OUT_DIR=out
-LATEX      = lualatex -interaction=batchmode -output-directory=$(OUT_DIR)
+LATEX      = pdflatex -interaction=batchmode -output-directory=$(OUT_DIR)
 
 default: british-quotes full-book.pdf
 complete: full-ebook.pdf
