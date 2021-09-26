@@ -1,16 +1,19 @@
-\usepackage[hidelinks=true,unicode=true,psdextra]{hyperref}
-\usepackage{arevmath}
+\usepackage{mathalpha}
 \usepackage{epigraph}
-\usepackage[greek, british]{babel} % Sets csquotes language
+\usepackage[utf8]{inputenc}
+\usepackage[greek.polutoniko, british]{babel} % Sets csquotes language
+\usepackage{teubner}
+\usepackage[LGR, T1]{fontenc}
 \usepackage[autostyle=true]{csquotes} % To easily Americanise it.
 \usepackage{ulem} % strikeout
 \usepackage{graphicx} % For included images in place of inline pentagrams, hexagrams.
 \usepackage{cjhebrew}
-
 \usepackage{amsmath} % For \therefore
 \usepackage{amssymb} % For \therefore
 
 \usepackage{ebgaramond} % main font
+\usepackage{substitutefont}
+\substitutefont{LGR}{\familydefault}{cmr}
 \usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.
 
 \usepackage{enumerate}
@@ -35,7 +38,7 @@
 
 \addtokomafont{title}{\bfseries\rmfamily}
 \renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
-\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{9}{2}\selectfont\scshape}
+\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{9}{2}\selectfont}
 \addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{8}{2}\selectfont}
 \renewcommand{\raggedsection}{\centering\rmfamily\bfseries}
 \addtokomafont{disposition}{\centering\rmfamily\bfseries}
@@ -58,7 +61,7 @@
 
 \newcommand\GreekBabalon{Βαβαλον}
 \newcommand\Argentium{$A\therefore{}A\therefore$}
-\newcommand\GD{$G\therefore{}{}D\therefore$}
+\newcommand\GD{$G\therefore{}D\therefore$}
 \newcommand\aethyr{\ae{}thyr}
 \newcommand\AEthyr{\AE{}thyr}
 
@@ -66,3 +69,5 @@
 \newenvironment{Facing}
   {\csname @openrightfalse\endcsname}
   {\csname @openrighttrue\endcsname}
+
+\usepackage[hidelinks=true,unicode=true,psdextra]{hyperref}
