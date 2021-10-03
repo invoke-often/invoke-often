@@ -69,5 +69,19 @@
 \newenvironment{Facing}
   {\csname @openrightfalse\endcsname}
   {\csname @openrighttrue\endcsname}
-
+\newenvironment{twopage}{%
+  \begingroup\setbox0\vbox\bgroup
+}{%
+  \egroup
+  \ifdim\ht0>\textheight
+    \setbox1\vsplit0 to \textheight
+    \cleardoublepage\unvbox1\clearpage
+    \ifdim\ht0>\textheight
+      \PackageWarning{twopage}{Overflow in twopage environment}%
+    \fi
+    \unvbox0\clearpage
+  \else
+    \clearpage\unvbox0\clearpage
+  \fi\endgroup
+}
 \usepackage[hidelinks=true,unicode=true,psdextra]{hyperref}
