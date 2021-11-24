@@ -2,16 +2,19 @@
 \usepackage{epigraph}
 \usepackage[utf8]{inputenc}
 \usepackage[greek.polutoniko, british]{babel} % Sets csquotes language
-\usepackage{teubner}
-\usepackage[LGR, T1]{fontenc}
-\usepackage[autostyle=true]{csquotes} % To easily Americanise it.
 \usepackage{ulem} % strikeout
 \usepackage{graphicx} % For included images in place of inline pentagrams, hexagrams.
 \usepackage{cjhebrew}
 \usepackage{amsmath} % For \therefore
 \usepackage{amssymb} % For \therefore
-\setlength{\voffset}{0.1in}
-\usepackage{ebgaramond} % main font
+\setlength{\voffset}{0.10in}
+\usepackage[nf]{coelacanth}
+\usepackage{teubner}
+\usepackage[LGR, T1]{fontenc}
+\let\oldnormalfont\normalfont
+\def\normalfont{\oldnormalfont\mdseries}
+\usepackage[autostyle=true]{csquotes} % To easily Americanise it.
+% \usepackage{ebgaramond} % main font
 \usepackage{substitutefont}
 \substitutefont{LGR}{\familydefault}{cmr}
 \usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.

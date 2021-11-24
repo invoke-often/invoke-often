@@ -73,28 +73,6 @@ Output files may be found in `out` by default.
 - Hebrew and Greek should be typeset as in the originals. Greek may be used directly; Hebrew is defined using `\cjRL{}` from the `cjhebrew` package.
 - Packages may be added freely to the project, but should be commented with an explanation.
 
-## Misc
-
-### Editor's Rituals and Inclusions
-
-To append alternatives to the Qabalistic Cross and Lesser Ritual of the Pentagram written by the editor, the Qliphothic Cross and the Lesser Ritual of the Averse Pentagram, along with Aleister Crowley's Hymn to Satan, to the printable book run:
-
-```
-make 
-```
-
-To do the same with the ebook:
-
-```
-make complete
-```
-
-and with Crowley's Class D writings with:
-
-```
-make rituals
-```
-
 ---
 
 _Love is the law, love under will._

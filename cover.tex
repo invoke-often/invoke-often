@@ -1,8 +1,12 @@
-\documentclass[markcolor=black, trimmed=false, coverheight=175mm, coverwidth=125mm, spinewidth=0.43in, bleedwidth=0.345in, markthick=0.0pt, marklength=0.0pt]{bookcover}
-\usepackage{ebgaramond}
+% Lulu -- cover requirements
+% \documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\usepackage[default]{comfortaa}
+\usepackage[british]{babel}
 \usepackage{fontspec}
+\usepackage{csquotes}
 \usepackage{xparse}
-% https://tex.stackexchange.com/a/28036 
+% https://tex.stackexchange.com/a/28036
 \def\barcode#1#2#3#4#5#6#7{\begingroup%
   \dimen0=0.1em
   \def\stack##1##2{\oalign{##1\cr\hidewidth##2\hidewidth}}%
@@ -29,26 +33,30 @@
   m % size
 }{
   \begin{tikzpicture}
-    \draw[black,line width=2.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
-    \draw[white,line width=1.1mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+    \draw[white,line width=2.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+    \draw[\MainColour,line width=1.1mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
   \end{tikzpicture}
 }
 \NewDocumentCommand{\PlainUnicursalHexagram}{
   m % size
 }{
   \begin{tikzpicture}
-    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
+    \draw[white,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- cycle;
   \end{tikzpicture}
 }
 
+\newcommand{\MainColour}{red!5!black!90}
+\newcommand{\BGColour}{black!89}
 \begin{document}
 \begin{bookcover}
-\bookcovercomponent{color}{bg whole}{white}
-\bookcovercomponent{color}{bg spine}{white}
+\bookcovercomponent{color}{bg whole}{\BGColour}
+\bookcovercomponent{color}{front}{\MainColour}
+\bookcovercomponent{color}{back}{\MainColour}
+\bookcovercomponent{color}{bg spine}{\BGColour}
 \bookcovercomponent{normal}{front}{
   \begin{center}
   \vspace*{\fill}
-  \fontsize{32pt}{0em}\textsc{\textcolor{black}{Invoke Often!}}
+  \fontsize{32pt}{0em}\selectfont\textcolor{white}{Invoke Often!}
 
   \vspace{1.0cm}
 
@@ -56,7 +64,7 @@
 
   \vspace{1.0cm}
 
-  \fontsize{16pt}{0em}\textit{\textcolor{black}{Instructions, Rituals, \& the Great Work}}
+  \fontsize{16pt}{0em}\textit{\textcolor{white}{\enquote{Class D} Instructions \& Rituals}}
 
   \vspace*{\fill}
   \end{center}
@@ -64,32 +72,29 @@
 \bookcovercomponent{center}{spine}{
   \vspace*{\fill}
   \rotatebox[origin=c]{-90}{
-    \color{black}\LARGE
-    \hspace*{\fill}\textcolor{black}{Invoke Often!}\hspace*{\fill}
+    \color{white}\Large
+    \hspace*{\fill}\textcolor{white}{Invoke Often!}\hspace*{\fill}
 
-    \hspace{3.25em}
+    \hspace{12em}
 
-
-
-    \hspace{3.25em}
-
-    \hspace*{\fill}\textcolor{black}{Aleister Crowley}\hspace*{\fill}}
+    \hspace*{\fill}\textcolor{white}{Aleister Crowley}\hspace*{\fill}}
   \vspace*{\fill}
 }
 \bookcovercomponent{normal}{back}{
   \begin{center}
   \vspace*{\fill}
   \vspace{3.3cm}
-  \fontsize{24pt}{0em}\textsc{Αυμγν.}
+  \textcolor{white}{\fontsize{24pt}{0em}\textsc{Αυμγν.}}
 
   \vspace{24pt}
 
-  \fontsize{24pt}{0em}\textsc{Abrahadabra.}
+  \textcolor{white}{\fontsize{24pt}{0em}\textsc{Abrahadabra.}}
   \end{center}
   \vspace*{\fill}
   \setlength{\fboxsep}{2mm}
-  \hspace*{\fill}\colorbox{white}{%
-      \barcode 9781777528201
+  \hspace*{\fill}\colorbox{\MainColour}{%
+    \textcolor{white}{
+      \barcode 9781777528225}
   }
   \hspace{0.5in}
 }
