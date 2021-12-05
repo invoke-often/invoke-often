@@ -780,3 +780,69 @@ $#1^{\circ}=#2^{\circ}$
   \end{scope}
   \end{tikzpicture}
 }
+\NewDocumentCommand{\aversepentagram}{
+  mO{-1}% size
+}{
+  \begin{tikzpicture}
+    \coordinate (0) at (0, -#1);
+    \node(Spirit) at (0, -#1) {};
+
+    \coordinate (1) at ({-cos(54) * -#1},{-sin(54) * -#1});
+    \node(Earth) at ({-cos(54) * -#1},{-sin(54) * -#1}) {};
+
+    \coordinate (2) at ({-#1 * cos(18)},{-#1 * sin(18)});
+    \node(Water) at ({-#1 * cos(18)},{-#1 * sin(18)}) {};
+
+    \coordinate (3) at ({#1 * cos(18)},{-#1 * sin(18)});
+    \node(Air) at ({#1 * cos(18)},{-#1 * sin(18)}) {};
+
+    \coordinate (5) at ({cos(54) * -#1},{sin(54) * #1});
+    \node(Fire) at ({cos(54) * -#1},{sin(54) * #1}) {};
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.65 with -{\arrow{Latex[length=2mm]}}}
+      ]
+
+    \ifnum #2=0
+    \draw[postaction={decorate}] (Earth.center) -- (Spirit.center);
+    \else
+    \draw[-] (Earth.center) -- (Spirit.center);
+    \fi
+
+    \ifnum #2=1
+    \draw[postaction={decorate}] (Earth.center) -- (Water.center);
+    \else
+    \draw[-] (Earth.center) -- (Water.center);
+    \fi
+
+    \ifnum #2=2
+    \draw[postaction={decorate}] (Water.center) -- (Air.center);
+    \else
+    \draw[-] (Water.center) -- (Air.center);
+    \fi
+
+    \ifnum #2=3
+    \draw[postaction={decorate}] (Air.center) -- (Water.center);
+    \fi
+    \draw[-] (Air.center) -- (Fire.center);
+
+    \ifnum #2=4
+    \draw[postaction={decorate}] (Fire.center) -- (Spirit.center);
+    \else
+    \draw[-] (Fire.center) -- (Spirit.center);
+    \fi
+    \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\unicursalhexagram}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.5 with -{\arrowreversed{Latex[length=2mm]}}}
+      ]
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) edge[decorate] (0, 1.2 * #1) -- (0, 1.2 * #1);
+  \end{scope}
+  \end{tikzpicture}
+}
