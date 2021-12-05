@@ -1,6 +1,7 @@
 % Lulu -- cover requirements
-% \documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
-\documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% Amazon -- cover requirements
+% \documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
 \usepackage[default]{comfortaa}
 \usepackage[british]{babel}
 \usepackage{fontspec}
@@ -45,8 +46,8 @@
   \end{tikzpicture}
 }
 
-\newcommand{\MainColour}{red!5!black!90}
-\newcommand{\BGColour}{black!89}
+\newcommand{\MainColour}{red!10!black!95}
+\newcommand{\BGColour}{black!100}
 \begin{document}
 \begin{bookcover}
 \bookcovercomponent{color}{bg whole}{\BGColour}
@@ -56,15 +57,15 @@
 \bookcovercomponent{normal}{front}{
   \begin{center}
   \vspace*{\fill}
-  \fontsize{32pt}{0em}\selectfont\textcolor{white}{Invoke Often!}
+  \fontsize{36pt}{0em}\selectfont\textcolor{white}{Invoke Often!}
 
   \vspace{1.0cm}
 
-  \UnicursalHexagram{2.10}
+  \UnicursalHexagram{2.50}
 
   \vspace{1.0cm}
 
-  \fontsize{16pt}{0em}\textit{\textcolor{white}{\enquote{Class D} Instructions \& Rituals}}
+  \fontsize{18pt}{0em}\textit{\textcolor{white}{\enquote{Class D} Instructions \& Rituals}}
 
   \vspace*{\fill}
   \end{center}
@@ -73,22 +74,23 @@
   \vspace*{\fill}
   \rotatebox[origin=c]{-90}{
     \color{white}\Large
-    \hspace*{\fill}\textcolor{white}{Invoke Often!}\hspace*{\fill}
+    \fontsize{16pt}{0em}{\selectfont\hspace*{\fill}\textcolor{white}{Invoke Often!}\hspace*{\fill}}
 
     \hspace{12em}
 
-    \hspace*{\fill}\textcolor{white}{Aleister Crowley}\hspace*{\fill}}
+    \fontsize{16pt}{0em}{\selectfont\hspace*{\fill}\textcolor{white}{Aleister Crowley}\hspace*{\fill}}
   \vspace*{\fill}
+  }
 }
 \bookcovercomponent{normal}{back}{
   \begin{center}
   \vspace*{\fill}
   \vspace{3.3cm}
-  \textcolor{white}{\fontsize{24pt}{0em}\textsc{Αυμγν.}}
+  \textcolor{white}{\fontsize{36pt}{0em}\textsc{Αυμγν.}}
 
   \vspace{24pt}
 
-  \textcolor{white}{\fontsize{24pt}{0em}\textsc{Abrahadabra.}}
+  \textcolor{white}{\fontsize{36pt}{0em}\textsc{Abrahadabra.}}
   \end{center}
   \vspace*{\fill}
   \setlength{\fboxsep}{2mm}
