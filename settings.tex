@@ -59,9 +59,8 @@
 \newenvironment{Verse}
   {\center\varwidth{\linewidth}\begin{verse}}
   {\end{verse}\endvarwidth\endcenter}
-
 \newcommand\grade[2]{%
-$#1^{\circ}=#2^{\square}$
+$#1^{\circ}=#2^{\circ}$
 }
 % To justify text left and right on the same line
 \newcommand\lwenv[2]{%
@@ -133,8 +132,8 @@ $#1^{\circ}=#2^{\square}$
     \node[label=below right:{\Fire [Fire]}](Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
     \begin{scope}[thick,decoration={
           markings,
-          mark=at position 0.3 with -{\arrow{Latex[length=2mm]}},
-          mark=at position 0.9 with -{\arrow{Latex[length=2mm]}}}
+          mark=at position 0.3 with -{\arrow{Latex[length=2.5mm]}},
+          mark=at position 0.9 with -{\arrow{Latex[length=2.5mm]}}}
       ]
 
     \ifnum #2=0
@@ -189,7 +188,7 @@ $#1^{\circ}=#2^{\square}$
     \node(Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
     \begin{scope}[thick,decoration={
           markings,
-          mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+          mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
       ]
 
     \ifnum #2=0
@@ -245,7 +244,7 @@ $#1^{\circ}=#2^{\square}$
     \node(Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
     \begin{scope}[thick,decoration={
           markings,
-          mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+          mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
       ]
 
     \ifnum #2=0
@@ -296,7 +295,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -344,7 +343,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -391,7 +390,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.65 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -439,7 +438,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0 + .5);
@@ -515,7 +514,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -563,7 +562,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -611,7 +610,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -643,7 +642,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -691,7 +690,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
@@ -739,7 +738,7 @@ $#1^{\circ}=#2^{\square}$
   \begin{tikzpicture}[remember picture]
   \begin{scope}[thick,decoration={
         markings,
-        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
     ]
   % Upper
   \coordinate (0) at (0, 0);
