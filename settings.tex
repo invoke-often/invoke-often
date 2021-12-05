@@ -1,4 +1,5 @@
 \usepackage{mathalpha}
+\usepackage{array}
 \usepackage{epigraph}
 \usepackage[utf8]{inputenc}
 \usepackage[greek.polutoniko, british]{babel} % Sets csquotes language
@@ -11,13 +12,13 @@
 \usepackage{amsmath} % For \therefore
 \usepackage{amssymb} % For \therefore
 \setlength{\voffset}{0.10in}
-\usepackage[nf]{coelacanth}
+% \usepackage[nf]{coelacanth}
 \usepackage{teubner}
 \usepackage[LGR, T1]{fontenc}
 \let\oldnormalfont\normalfont
 \def\normalfont{\oldnormalfont\mdseries}
 \usepackage[autostyle=true]{csquotes} % To easily Americanise it.
-% \usepackage{ebgaramond} % main font
+\usepackage{ebgaramond} % main font
 \usepackage{substitutefont}
 \substitutefont{LGR}{\familydefault}{cmr}
 \usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.
@@ -477,6 +478,305 @@ $#1^{\circ}=#2^{\square}$
   \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=-4pt,yshift=1pt]2}]{};
   \else
   \draw (CL.center) -- (AL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\planetaryhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node[label=left:\Mercury](A) at (0,0) {};
+  \node[label=right:\Venus](B) at (#1, 0) {};
+  \node[label=above:\Saturn](C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \draw (B.center) -- (C.center);
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL)[label=left:\Mars] at (0,#1 - 0.5) {};
+  \node(BL)[label=right:\Jupiter] at (#1, #1 - 0.5) {};
+  \node(CL)[label=below:\Moon] at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \draw (AL.center) -- (CL.center);
+  \draw (BL.center) -- (CL.center);
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\marshexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (B.center) -- (A.center);
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (B.center) -- (C.center);
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (AL.center) -- (BL.center);
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (AL.center) -- (CL.center);
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\jupiterhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (A.center) -- (B.center);
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \draw (B.center) -- (C.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (A.center) -- (C.center);
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (BL.center) -- (AL.center);
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \draw (AL.center) -- (CL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (BL.center) -- (CL.center);
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\sunhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.7 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \draw (B.center) -- (C.center);
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \draw (AL.center) -- (CL.center);
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\venushexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (B.center) -- (A.center);
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (B.center) -- (C.center);
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (AL.center) -- (BL.center);
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (AL.center) -- (CL.center);
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\mercuryhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}]  (A.center) -- (B.center);
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \draw (B.center) -- (C.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (A.center) -- (C.center);
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (BL.center) -- (AL.center);
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \draw (AL.center) -- (CL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (BL.center) -- (CL.center);
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\moonhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center);
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center);
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center);
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center);
+  \else
+  \draw (BL.center) -- (CL.center);
   \fi
   \end{scope}
   \end{tikzpicture}
