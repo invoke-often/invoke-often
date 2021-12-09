@@ -12,13 +12,13 @@
 \usepackage{amsmath} % For \therefore
 \usepackage{amssymb} % For \therefore
 \setlength{\voffset}{0.10in}
-% \usepackage[nf]{coelacanth}
 \usepackage{teubner}
 \usepackage[LGR, T1]{fontenc}
 \let\oldnormalfont\normalfont
 \def\normalfont{\oldnormalfont\mdseries}
 \usepackage[autostyle=true]{csquotes} % To easily Americanise it.
 \usepackage{ebgaramond} % main font
+% \usepackage[nf]{coelacanth} % other possible main font
 \usepackage{substitutefont}
 \substitutefont{LGR}{\familydefault}{cmr}
 \usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.
@@ -60,7 +60,7 @@
   {\center\varwidth{\linewidth}\begin{verse}}
   {\end{verse}\endvarwidth\endcenter}
 \newcommand\grade[2]{%
-$#1^{\circ}=#2^{\circ}$
+$#1^{\circ}=#2^{\square}$
 }
 % To justify text left and right on the same line
 \newcommand\lwenv[2]{%
@@ -81,7 +81,7 @@ $#1^{\circ}=#2^{\circ}$
   \reflectbox{\ascnode}%
 }
 \newcommand\GreekBabalon{Βαβαλον}
-\newcommand\Argentium{$A\therefore{}A\therefore$}
+\newcommand\Argentium{${\mathrm{A}}{\therefore{}}{\mathrm{A}}{\therefore}$}
 \newcommand\GD{$G\therefore{}D\therefore$}
 \newcommand\aethyr{\ae{}thyr}
 \newcommand\AEthyr{\AE{}thyr}

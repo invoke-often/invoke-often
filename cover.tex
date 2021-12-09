@@ -1,7 +1,7 @@
 % Lulu -- cover requirements
 \documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 % Amazon -- cover requirements
-% \documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=0.477in, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% \documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 \usepackage[default]{comfortaa}
 \usepackage[british]{babel}
 \usepackage{fontspec}
@@ -69,6 +69,12 @@
 
   \vspace*{\fill}
   \end{center}
+}
+\bookcovercomponent{tikz}{front}{
+  \fill[black] (part.south west) -- (part.north west) -- ([xshift=0.3cm] part.north west) -- ([xshift=0.3cm] part.south west) -- cycle;
+}
+\bookcovercomponent{tikz}{back}{
+  \fill[black] (part.south east) -- (part.north east) -- ([xshift=-0.3cm] part.north east) -- ([xshift=-0.3cm] part.south east) -- cycle;
 }
 \bookcovercomponent{center}{spine}{
   \vspace*{\fill}
