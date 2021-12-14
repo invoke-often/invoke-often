@@ -1,7 +1,7 @@
 % Lulu -- cover requirements
-\documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% \documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 % Amazon -- cover requirements
-% \documentclass[markcolor=white, trimmed=false, coverwidth=170mm, coverheight=243mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\documentclass[markcolor=white, trimmed=false, coverwidth=151mm, coverheight=225mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 \usepackage[default]{comfortaa}
 \usepackage[british]{babel}
 \usepackage{fontspec}
@@ -48,6 +48,7 @@
 
 \newcommand{\MainColour}{red!10!black!95}
 \newcommand{\BGColour}{black!100}
+\newcommand{\BorderSize}{40mm}
 \begin{document}
 \begin{bookcover}
 \bookcovercomponent{color}{bg whole}{\BGColour}
@@ -70,11 +71,37 @@
   \vspace*{\fill}
   \end{center}
 }
+% Spine Border front
 \bookcovercomponent{tikz}{front}{
   \fill[black] (part.south west) -- (part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
 }
+% Top front Border
+\bookcovercomponent{tikz}{front}{
+  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.4cm] part.north west) -- ([yshift=-0.4cm] part.north east) -- cycle;
+}
+% Bottom front Border
+\bookcovercomponent{tikz}{front}{
+  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.4cm] part.south west) -- ([yshift=0.4cm] part.south east) -- cycle;
+}
+% Edge Border front
+\bookcovercomponent{tikz}{front}{
+  \fill[black] (part.south east) -- (part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+}
+% Spine border back
 \bookcovercomponent{tikz}{back}{
   \fill[black] (part.south east) -- (part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+}
+% Top Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.4cm] part.north west) -- ([yshift=-0.4cm] part.north east) -- cycle;
+}
+% Bottom Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.4cm] part.south west) -- ([yshift=0.4cm] part.south east) -- cycle;
+}
+% Edge Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] (part.south west) -- (part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
 }
 \bookcovercomponent{center}{spine}{
   \vspace*{\fill}
@@ -99,12 +126,13 @@
   \textcolor{white}{\fontsize{36pt}{0em}\textsc{Abrahadabra.}}
   \end{center}
   \vspace*{\fill}
-  \setlength{\fboxsep}{2mm}
+  \setlength{\fboxsep}{4mm}
   \hspace*{\fill}\colorbox{\MainColour}{%
     \textcolor{white}{
       \barcode 9781777528225}
   }
-  \hspace{0.5in}
+  \vspace*{10mm}
+  \hspace{5mm}
 }
 \end{bookcover}
 \end{document}
