@@ -6,9 +6,6 @@ An open-source, community reviewed collection of Aleister Crowley's instructions
 
 Its official website is hosted here on [Github](https://invokeoften.github.io/book/)
 
-The book may be purchased in B6 print-on-demand format on [Amazon](https://www.amazon.com/gp/product/1777528208),
-or as appropriate to your location.
-
 ## Requirements
 
 The project is typeset using [`pdfTeX`](https://en.wikipedia.org/wiki/PdfTeX).
@@ -67,8 +64,6 @@ Output files may be found in `out` by default.
     - The Star Ruby
     - The Star Sapphire
     - Liber V Vel Reguli
-    - The Hebrew letter charts
-  - For facing pages in the middle of the chapter, like the Lesser Ritual of the Pentagram, please use `\begin{samepage} ... \end{samepage}`
 - All other chapters should start on the right-side. 
 - Hebrew and Greek should be typeset as in the originals. Greek may be used directly; Hebrew is defined using `\cjRL{}` from the `cjhebrew` package.
 - Packages may be added freely to the project, but should be commented with an explanation.
