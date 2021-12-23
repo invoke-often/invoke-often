@@ -1,7 +1,7 @@
 % Lulu -- cover requirements
-% \documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+\documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.12mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 % Amazon -- cover requirements
-\documentclass[markcolor=white, trimmed=false, coverwidth=151mm, coverheight=225mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% \documentclass[markcolor=white, trimmed=false, coverwidth=151mm, coverheight=225mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 \usepackage[default]{comfortaa}
 \usepackage[british]{babel}
 \usepackage{fontspec}
@@ -66,7 +66,7 @@
 
   \vspace{1.0cm}
 
-  \fontsize{18pt}{0em}\textit{\textcolor{white}{\enquote{Class D} Instructions \& Rituals}}
+  \fontsize{18pt}{0em}\textit{\textcolor{white}{Class D Libri -- Instructions \& Rituals}}
 
   \vspace*{\fill}
   \end{center}
@@ -77,11 +77,11 @@
 }
 % Top front Border
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.4cm] part.north west) -- ([yshift=-0.4cm] part.north east) -- cycle;
+  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
 }
 % Bottom front Border
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.4cm] part.south west) -- ([yshift=0.4cm] part.south east) -- cycle;
+  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
 }
 % Edge Border front
 \bookcovercomponent{tikz}{front}{
@@ -93,11 +93,11 @@
 }
 % Top Border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.4cm] part.north west) -- ([yshift=-0.4cm] part.north east) -- cycle;
+  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
 }
 % Bottom Border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.4cm] part.south west) -- ([yshift=0.4cm] part.south east) -- cycle;
+  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
 }
 % Edge Border back
 \bookcovercomponent{tikz}{back}{
@@ -131,8 +131,8 @@
     \textcolor{white}{
       \barcode 9781777528225}
   }
-  \vspace*{10mm}
-  \hspace{5mm}
+  \vspace*{12mm}
+  \hspace{3mm}
 }
 \end{bookcover}
 \end{document}
