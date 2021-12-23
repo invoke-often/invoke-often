@@ -1,4 +1,4 @@
-BOOKS     = class-d.tex full-book.tex full-ebook.tex invoke-often-ebook.tex invoke-often-book.tex rituals.tex
+BOOKS     = class-d.tex invoke-often-book.tex
 BOOKS_OUT:=$(BOOKS:.tex=.pdf)
 
 COVERS     = cover.tex
@@ -13,14 +13,10 @@ LATEX      = pdflatex -interaction=batchmode -output-directory=$(OUT_DIR)
 cover.pdf : cover.tex
 	xelatex -interaction=batchmode -output-directory=$(OUT_DIR) cover.tex
 cover: cover.pdf
-default: british-quotes full-book.pdf
-complete: full-ebook.pdf
 book: invoke-often-book.pdf
-onscreen: invoke-often-ebook.pdf
 crowley: class-d.pdf
-rituals: rituals.pdf
 bookfull: book cover.pdf
-all: clean british-quotes default complete onscreen crowley bookfull rituals
+all: clean british-quotes default complete crowley bookfull rituals
 
 american-quotes:
 	$(info Setting American quotes style ...)
@@ -50,4 +46,4 @@ clean-pdfs:
 
 clean: buildclean clean-pdfs
 
-.PHONY: all clean default complete book onscreen crowley rituals bookfull american-quotes british-quotes clean-pdfs buildclean $(BOOKS)
+.PHONY: all clean default book crowley american-quotes british-quotes clean-pdfs buildclean $(BOOKS)
