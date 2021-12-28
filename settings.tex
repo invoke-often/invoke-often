@@ -6,6 +6,7 @@
 \usepackage{ulem} % strikeout
 \usepackage{graphicx} % For included images in place of inline pentagrams, hexagrams.
 \usepackage{array,multirow}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 \newcommand\Rotate[1]{\rotatebox[origin=c]{90}{\smaller#1}}
 \usepackage{float}
 \usepackage{cjhebrew}
@@ -44,11 +45,10 @@
 \setlength{\parskip}{0.0pt}
 
 \addtokomafont{title}{\bfseries\rmfamily}
-\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
-\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{12}{2}\selectfont}
-\addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{11}{2}\selectfont}
-\addtokomafont{subsubsection}{\centering\rmfamily\bfseries\fontsize{10}{2}\selectfont}
-\renewcommand{\raggedsection}{\centering\rmfamily\bfseries}
+\addtokomafont{chapter}{\centering\rmfamily\bfseries\selectfont}
+\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{12.5}{0}\selectfont}
+\addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{11.5}{0}\selectfont}
+\addtokomafont{subsubsection}{\centering\rmfamily\bfseries\fontsize{10.5}{0}\selectfont}
 \addtokomafont{disposition}{\centering\rmfamily\bfseries}
 
 \usepackage{relsize}
@@ -85,6 +85,7 @@ $#1^{\circ}=#2^{\square}$
 \newcommand\GD{$G\therefore{}D\therefore$}
 \newcommand\aethyr{\ae{}thyr}
 \newcommand\AEthyr{\AE{}thyr}
+\newcommand\Aumgn{\textgreek{ΑΥΜΓΝ}}
 
 \DeclareRobustCommand{\editorsnote}[1]{\begin{footnote}{{#1} \textemdash{} \textsc{Editor}.}\end{footnote}}
 \newenvironment{Facing}
@@ -844,5 +845,12 @@ $#1^{\circ}=#2^{\square}$
       ]
     \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) edge[decorate] (0, 1.2 * #1) -- (0, 1.2 * #1);
   \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\unicursalhexagramplain}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- (0, 1.2 * #1);
   \end{tikzpicture}
 }
