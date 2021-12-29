@@ -44,9 +44,11 @@
 \usepackage{marvosym}
 \setlength{\parskip}{0.0pt}
 
-\addtokomafont{title}{\bfseries\rmfamily}
+\addtokomafont{title}{\centering\bfseries\rmfamily}
+\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
 \addtokomafont{chapter}{\centering\rmfamily\bfseries\selectfont}
 \addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{12.5}{0}\selectfont}
+\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
 \addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{11.5}{0}\selectfont}
 \addtokomafont{subsubsection}{\centering\rmfamily\bfseries\fontsize{10.5}{0}\selectfont}
 \addtokomafont{disposition}{\centering\rmfamily\bfseries}
