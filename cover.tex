@@ -46,7 +46,7 @@
   \end{tikzpicture}
 }
 
-\newcommand{\MainColour}{red!10!black!95}
+\newcommand{\MainColour}{red!12!black!95}
 \newcommand{\BGColour}{black!100}
 \newcommand{\BorderSize}{40mm}
 \begin{document}
@@ -73,35 +73,72 @@
 }
 % Spine Border front
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.south west) -- (part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
+  \fill[white] (part.south west) -- (part.north west) -- ([xshift=4.2mm] part.north west) -- ([xshift=4.2mm] part.south west) -- cycle;
 }
 % Top front Border
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
+  \fill[white] (part.north east) -- (part.north west) -- ([yshift=-5.2mm] part.north west) -- ([yshift=-5.2mm] part.north east) -- cycle;
 }
 % Bottom front Border
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
+  \fill[white] (part.south east) -- (part.south west) -- ([yshift=5.2mm] part.south west) -- ([yshift=5.2mm] part.south east) -- cycle;
 }
 % Edge Border front
 \bookcovercomponent{tikz}{front}{
-  \fill[black] (part.south east) -- (part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+  \fill[white] (part.south east) -- (part.north east) -- ([xshift=-4.2mm] part.north east) -- ([xshift=-4.2mm] part.south east) -- cycle;
 }
 % Spine border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.south east) -- (part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+  \fill[white] (part.south east) -- (part.north east) -- ([xshift=-4.2mm] part.north east) -- ([xshift=-4.2mm] part.south east) -- cycle;
 }
 % Top Border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.north east) -- (part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
+  \fill[white] (part.north east) -- (part.north west) -- ([yshift=-5.2mm] part.north west) -- ([yshift=-5.2mm] part.north east) -- cycle;
 }
 % Bottom Border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.south east) -- (part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
+  \fill[white] (part.south east) -- (part.south west) -- ([yshift=5.2mm] part.south west) -- ([yshift=5.2mm] part.south east) -- cycle;
 }
 % Edge Border back
 \bookcovercomponent{tikz}{back}{
-  \fill[black] (part.south west) -- (part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
+  \fill[white] (part.south west) -- (part.north west) -- ([xshift=4.2mm] part.north west) -- ([xshift=4.2mm] part.south west) -- cycle;
+}
+
+
+
+
+
+% Spine Border front
+\bookcovercomponent{tikz}{front}{
+  \fill[black] ([xshift=-.1cm] part.south west) -- ([xshift=-.1cm] part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
+}
+% Top front Border
+\bookcovercomponent{tikz}{front}{
+  \fill[black] ([yshift=0.1cm] part.north east) -- ([yshift=0.1cm] part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
+}
+% Bottom front Border
+\bookcovercomponent{tikz}{front}{
+  \fill[black] ([yshift=-0.1cm] part.south east) -- ([yshift=-0.1cm] part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
+}
+% Edge Border front
+\bookcovercomponent{tikz}{front}{
+  \fill[black] ([xshift=.1cm] part.south east) -- ([xshift=.1cm] part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+}
+% Spine border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] ([xshift=.1cm] part.south east) -- ([xshift=.1cm] part.north east) -- ([xshift=-0.4cm] part.north east) -- ([xshift=-0.4cm] part.south east) -- cycle;
+}
+% Top Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] ([yshift=0.1cm] part.north east) -- ([yshift=0.1cm] part.north west) -- ([yshift=-0.5cm] part.north west) -- ([yshift=-0.5cm] part.north east) -- cycle;
+}
+% Bottom Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] ([yshift=-0.1cm] part.south east) -- ([yshift=-0.1cm] part.south west) -- ([yshift=0.5cm] part.south west) -- ([yshift=0.5cm] part.south east) -- cycle;
+}
+% Edge Border back
+\bookcovercomponent{tikz}{back}{
+  \fill[black] ([xshift=-.1cm] part.south west) -- ([xshift=-.1cm] part.north west) -- ([xshift=0.4cm] part.north west) -- ([xshift=0.4cm] part.south west) -- cycle;
 }
 \bookcovercomponent{center}{spine}{
   \vspace*{\fill}
@@ -132,7 +169,7 @@
       \barcode 9798792059573}
   }
   \vspace*{12mm}
-  \hspace{3mm}
+  \hspace{3.5mm}
 }
 \end{bookcover}
 \end{document}
