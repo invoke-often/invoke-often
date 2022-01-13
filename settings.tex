@@ -83,7 +83,11 @@ $#1^{\circ}=#2^{\square}$
   \reflectbox{\ascnode}%
 }
 \newcommand\GreekBabalon{Βαβαλον}
-\newcommand\Argentium{${\mathrm{A}}{\therefore{}}{\mathrm{A}}{\therefore}$}
+\let\oldtherefore\therefore
+\renewcommand{\therefore}[1][0pt]{%
+  \mathrel{\raisebox{#1}{$\oldtherefore$}}%
+}
+\newcommand\Argentium{${\mathrm{A}}\mkern2mu{\therefore[1.0pt]{}}\mkern-3mu{\mathrm{A}}\mkern2mu{\therefore[1.0pt]{}}$}
 \newcommand\GD{$G\therefore{}D\therefore$}
 \newcommand\aethyr{\ae{}thyr}
 \newcommand\AEthyr{\AE{}thyr}
