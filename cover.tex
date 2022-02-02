@@ -1,9 +1,10 @@
-% Lulu -- cover requirements
-\documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.56mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 % Amazon -- cover requirements
+\documentclass[markcolor=white, trimmed=false, coverwidth=138mm, coverheight=213mm, spinewidth=12.54mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
+% Lulu -- cover requirements
 % \documentclass[markcolor=white, trimmed=false, coverwidth=151mm, coverheight=225mm, spinewidth=12.13mm, markthick=0.0pt, marklength=0.0pt]{bookcover}
 \usepackage[default]{comfortaa}
 \usepackage[british]{babel}
+\usepackage{barracuda}
 \usepackage{fontspec}
 \usepackage{csquotes}
 \usepackage{xparse}
@@ -163,13 +164,14 @@
   \textcolor{white}{\fontsize{36pt}{0em}\textsc{Abrahadabra.}}
   \end{center}
   \vspace*{\fill}
-  \setlength{\fboxsep}{4mm}
-  \hspace*{\fill}\colorbox{\MainColour}{%
-    \textcolor{white}{
-      \barcode 9798792059573}
-  }
-  \vspace*{12mm}
-  \hspace{3.5mm}
+   \hspace{0.5in}
+   \setlength{\fboxsep}{1mm}
+   \hspace*{\fill}
+   \colorbox{white}{
+     \includegraphics{isbn}
+   }
+   \vspace*{9mm}
+   \hspace{7mm}
 }
 \end{bookcover}
 \end{document}
