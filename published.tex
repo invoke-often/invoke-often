@@ -10,8 +10,10 @@
 \maketitle
 \include{license}
 \include{editors-note}
+\begingroup
+\hypersetup{hidelinks}
 \tableofcontents
-
+\endgroup
 \mainmatter
 \addpart{Instructions}
 \include{liber-librae}
@@ -53,17 +55,21 @@
 \include{liber-daath}
 \include{liber-b}
 \begin{Facing}
-\include{holy-hexagram}
+\include{prologue-unborn}
 \include{gnostic-creed}
 \include{adoration}
+\include{holy-hexagram}
 \include{hebrew}
 \include{greek}
 \end{Facing}
 }
 
 \backmatter
+\begingroup
+\hypersetup{hidelinks}
 \include{bibliography}
 \printindex
+\endgroup
 % \newpage
 % \pagenumbering{gobble}
 % \thispagestyle{plain} % empty
