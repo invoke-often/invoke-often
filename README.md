@@ -8,7 +8,7 @@ Its official website is hosted here on [Github](https://invokeoften.github.io/bo
 
 ## Physical copies
 
-In the event you would like a hard copy of the book, please print it from the PDF via your chosen printer. It is no longer available from me directly. If you would like to donate to me, please feel free to use Github Sponsors for a one-time donation, but preferably, donate directly to the Keep Silence project, linked above.
+In the event you would like a hard copy of the book, please print it from the PDF via your chosen printer. It is no longer available from me directly. If you would like to donate to the project, please feel free to use Github Sponsors for a one-time donation, but, preferably, donate directly to the Keep Silence project, linked above.
 
 Steps to print on Lulu:
 
