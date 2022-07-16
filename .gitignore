@@ -3,3 +3,10 @@
 *.toc
 *.out
 out/*
+*.fls
+*.idx
+*.ilg
+*.ind
+*.pdf
+*.png
+*.fdb*
