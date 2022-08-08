@@ -1,0 +1,876 @@
+\usepackage{makeidx}
+\usepackage{scrindex}
+\usepackage[totoc]{idxlayout}
+\makeindex
+\usepackage{mathalpha}
+\usepackage{array}
+\usepackage{epigraph}
+\usepackage[utf8]{inputenc}
+\usepackage[greek.polutoniko, british]{babel} % Sets csquotes language
+\usepackage{ulem} % strikeout
+\usepackage{graphicx} % For included images in place of inline pentagrams, hexagrams.
+\usepackage{array,multirow}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcommand\Rotate[1]{\rotatebox[origin=c]{90}{\smaller#1}}
+\usepackage{float}
+\usepackage{cjhebrew}
+\usepackage{amsmath} % For \therefore
+\usepackage{amssymb} % For \therefore
+\setlength{\voffset}{0.10in}
+\usepackage{teubner}
+\usepackage[LGR, T1]{fontenc}
+\let\oldnormalfont\normalfont
+\def\normalfont{\oldnormalfont\mdseries}
+\usepackage[autostyle=true]{csquotes} % To easily Americanise it.
+\usepackage{ebgaramond} % main font
+% \usepackage[nf]{coelacanth} % other possible main font
+\usepackage{substitutefont}
+\substitutefont{LGR}{\familydefault}{cmr}
+\usepackage[final, protrusion]{microtype} % No idea. Supposedly useful.
+
+\usepackage{enumerate}
+\usepackage{moreenum}
+\setlist{nosep}
+\usepackage{ragged2e} % lwenv built from this
+\usepackage{varwidth} % For centre verse environment
+\usepackage[hang,flushmargin]{footmisc}
+\setlength\epigraphwidth{.93\textwidth}
+\usepackage[indentfirst=true]{quoting}
+\quotingsetup{vskip=0pt}
+\usepackage[shortcuts]{extdash}
+\usepackage{indentfirst}
+\usepackage{xparse}
+\usepackage{xpatch}
+\newenvironment{tightverse}
+  {\vspace{-\itemsep}\begin{verse}}
+  {\vspace{-\itemsep}\end{verse}}
+\xpatchcmd{\verse}{\itemsep}{\advance\topsep-\parskip\itemsep}{}{}
+\usepackage{marvosym}
+\setlength{\parskip}{0.0pt}
+
+\addtokomafont{title}{\centering\bfseries\rmfamily}
+\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
+\addtokomafont{chapter}{\centering\rmfamily\bfseries\selectfont}
+\addtokomafont{section}{\centering\rmfamily\bfseries\fontsize{12.5}{0}\selectfont}
+\renewcommand{\raggedchapter}{\centering\rmfamily\bfseries}
+\addtokomafont{subsection}{\centering\rmfamily\bfseries\fontsize{11.5}{0}\selectfont}
+\addtokomafont{subsubsection}{\centering\rmfamily\bfseries\fontsize{10.5}{0}\selectfont}
+\addtokomafont{disposition}{\centering\rmfamily\bfseries}
+
+\usepackage{relsize}
+\newcommand\chapnum[1]{{\smallskip\bfseries\centering#1\par}}
+\usepackage{wasysym}
+\newcommand\PParNum[1]{\makebox[-5pt][r]{#1\rule{0pt}{0pt}}  \-\ \-\ \ignorespaces}
+% Typesets Hymn to Satan
+\newenvironment{Verse}
+  {\center\varwidth{\linewidth}\begin{verse}}
+  {\end{verse}\endvarwidth\endcenter}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+\usepackage{graphicx}
+\newcommand\grade[2]{$#1^{\circ}=#2^{\scalebox{0.45}{$\square$}}$}
+% To justify text left and right on the same line
+\newcommand\lwenv[2]{%
+  \par\smallskip
+  \parbox{.5\textwidth}{\begin{RaggedRight}{#1}\end{RaggedRight}}%
+  \parbox{.5\textwidth}{\begin{RaggedLeft}{#2}\end{RaggedLeft}}%
+  \par}
+
+% For Rahu https://golatex.de/viewtopic.php?t=8193
+\usepackage{wasysym}
+\usepackage{rotating}
+\newcommand*\rahur{%
+  \makebox[0pt][l]{\descnode}%
+  \reflectbox{\descnode}%
+}
+\newcommand*\rahu{%
+  \makebox[0pt][l]{\ascnode}%
+  \reflectbox{\ascnode}%
+}
+\newcommand\GreekBabalon{Βαβαλον}
+\let\oldtherefore\therefore
+\renewcommand{\therefore}[1][0pt]{%
+  \mathrel{\raisebox{#1}{$\oldtherefore$}}%
+}
+\newcommand\Argentium{${\mathrm{A}}\mkern2mu{\therefore[1.0pt]{}}\mkern-3mu{\mathrm{A}}\mkern2mu{\therefore[1.0pt]{}}$}
+\newcommand\GD{$G\therefore{}D\therefore$}
+\newcommand\aethyr{\ae{}thyr}
+\newcommand\AEthyr{\AE{}thyr}
+\newcommand\Agape{\textgreek{ΑΓΑΠΗ}}
+\newcommand\Aumgn{\textgreek{ΑΥΜΓΝ}}
+\newcommand\Thelema{\textgreek{ΘΕΛΗΜΑ}}
+\newcommand\FIAOF{\textgreek{\textDigamma{}ΙΑΟ\textDigamma{}}}
+
+\DeclareRobustCommand{\editorsnote}[1]{\begin{footnote}{{#1} \textemdash{} \textsc{Editor}.}\end{footnote}}
+\newenvironment{Facing}
+  {\csname @openrightfalse\endcsname}
+  {\csname @openrighttrue\endcsname}
+\newenvironment{twopage}{%
+  \begingroup\setbox0\vbox\bgroup
+}{%
+  \egroup
+  \ifdim\ht0>\textheight
+    \setbox1\vsplit0 to \textheight
+    \cleardoublepage\unvbox1\clearpage
+    \ifdim\ht0>\textheight
+      \PackageWarning{twopage}{Overflow in twopage environment}%
+    \fi
+    \unvbox0\clearpage
+  \else
+    \clearpage\unvbox0\clearpage
+  \fi\endgroup
+}
+\usepackage{xcolor}
+\usepackage[hyperfootnotes=false,unicode=true,linkbordercolor=cyan,psdextra]{hyperref}
+\usepackage{starfont}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows, arrows.meta}
+\usetikzlibrary{decorations.markings}
+\newcommand\Spirit{\rlap{\Fortune{}}\Terra}
+\NewDocumentCommand{\pentagramlabelled}{
+  mO{-1}% size
+}{
+  \begin{tikzpicture}
+    \coordinate (0) at (0, #1);
+    \node[label=above:{\Spirit [Spirit]}](Spirit) at (0, #1) {};
+
+    \coordinate (1) at ({-cos(54) * #1},{-sin(54) * #1});
+    \node[label=below left:{\Earth [Earth]}](Earth) at ({-cos(54) * #1},{-sin(54) * #1}) {};
+
+    \coordinate (2) at ({#1 * cos(18)},{#1 * sin(18)});
+    \node[label=right:{\Water [Water]}](Water) at ({#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (3) at (-{#1 * cos(18)},{#1 * sin(18)});
+    \node[label=left:{\Air [Air]}](Air) at (-{#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (5) at ({cos(54) * #1},{sin(54) * -#1});
+    \node[label=below right:{\Fire [Fire]}](Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.3 with -{\arrow{Latex[length=2.5mm]}},
+          mark=at position 0.9 with -{\arrow{Latex[length=2.5mm]}}}
+      ]
+
+    \ifnum #2=0
+    \draw[postaction={decorate}] (Spirit.center) -- (Earth.center);
+    \else
+    \draw[-] (Spirit.center) -- (Earth.center);
+    \fi
+
+    \ifnum #2=1
+    \draw[postaction={decorate}] (Earth.center) -- (Water.center);
+    \else
+    \draw[-] (Earth.center) -- (Water.center);
+    \fi
+
+    \ifnum #2=2
+    \draw[postaction={decorate}] (Water.center) -- (Air.center);
+    \else
+    \draw[-] (Water.center) -- (Air.center);
+    \fi
+
+    \ifnum #2=3
+    \draw[postaction={decorate}] (Air.center) -- (Fire.center);
+    \else
+    \draw[-] (Air.center) -- (Fire.center);
+    \fi
+
+    \ifnum #2=4
+    \draw[postaction={decorate}] (Fire.center) -- (Spirit.center);
+    \else
+    \draw[-] (Fire.center) -- (Spirit.center);
+    \fi
+    \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\pentagramreversed}{
+  mO{-1}% size
+}{
+  \begin{tikzpicture}
+    \coordinate (0) at (0, #1);
+    \node(Spirit) at (0, #1) {};
+
+    \coordinate (1) at ({-cos(54) * #1},{-sin(54) * #1});
+    \node(Earth) at ({-cos(54) * #1},{-sin(54) * #1}) {};
+
+    \coordinate (2) at ({#1 * cos(18)},{#1 * sin(18)});
+    \node(Water) at ({#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (3) at (-{#1 * cos(18)},{#1 * sin(18)});
+    \node(Air) at (-{#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (5) at ({cos(54) * #1},{sin(54) * -#1});
+    \node(Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+      ]
+
+    \ifnum #2=0
+    \draw[postaction={decorate}] (Earth.center) -- (Spirit.center);
+    \else
+    \draw[-] (Earth.center) -- (Spirit.center);
+    \fi
+
+    \ifnum #2=1
+    \draw[postaction={decorate}] (Water.center) -- (Earth.center);
+    \else
+    \draw[-] (Water.center) -- (Earth.center);
+    \fi
+
+    \ifnum #2=2
+    \draw[postaction={decorate}] (Air.center) -- (Water.center);
+    \else
+    \draw[-] (Air.center) -- (Water.center);
+    \fi
+
+    \ifnum #2=3
+    \draw[postaction={decorate}] (Fire.center) -- (Air.center);
+    \else
+    \draw[-] (Fire.center) -- (Air.center);
+    \fi
+
+    \ifnum #2=4
+    \draw[postaction={decorate}] (Spirit.center) -- (Fire.center);
+    \else
+    \draw[-] (Spirit.center) -- (Fire.center);
+    \fi
+    \end{scope}
+  \end{tikzpicture}
+}
+
+\NewDocumentCommand{\pentagram}{
+  mO{-1}% size
+}{
+  \begin{tikzpicture}
+    \coordinate (0) at (0, #1);
+    \node(Spirit) at (0, #1) {};
+
+    \coordinate (1) at ({-cos(54) * #1},{-sin(54) * #1});
+    \node(Earth) at ({-cos(54) * #1},{-sin(54) * #1}) {};
+
+    \coordinate (2) at ({#1 * cos(18)},{#1 * sin(18)});
+    \node(Water) at ({#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (3) at (-{#1 * cos(18)},{#1 * sin(18)});
+    \node(Air) at (-{#1 * cos(18)},{#1 * sin(18)}) {};
+
+    \coordinate (5) at ({cos(54) * #1},{sin(54) * -#1});
+    \node(Fire) at ({cos(54) * #1},{sin(54) * -#1}) {};
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+      ]
+
+    \ifnum #2=0
+    \draw[postaction={decorate}] (Spirit.center) -- (Earth.center);
+    \else
+    \draw[-] (Spirit.center) -- (Earth.center);
+    \fi
+
+    \ifnum #2=1
+    \draw[postaction={decorate}] (Earth.center) -- (Water.center);
+    \else
+    \draw[-] (Earth.center) -- (Water.center);
+    \fi
+
+    \ifnum #2=2
+    \draw[postaction={decorate}] (Water.center) -- (Air.center);
+    \else
+    \draw[-] (Water.center) -- (Air.center);
+    \fi
+
+    \ifnum #2=3
+    \draw[postaction={decorate}] (Air.center) -- (Fire.center);
+    \else
+    \draw[-] (Air.center) -- (Fire.center);
+    \fi
+
+    \ifnum #2=4
+    \draw[postaction={decorate}] (Fire.center) -- (Spirit.center);
+    \else
+    \draw[-] (Fire.center) -- (Spirit.center);
+    \fi
+    \end{scope}
+  \end{tikzpicture}
+}
+\tikzset{
+    uptri/.style={
+        draw,
+        shape border rotate=180,
+        regular polygon,
+        regular polygon sides=3,
+        node distance=2cm,
+        minimum height=4em
+    }
+}
+\NewDocumentCommand{\waterhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center) node[label={[xshift=1pt,yshift=2pt]1}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center) node[label={[xshift=-1pt,yshift=0pt]1}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 + .7 * #1);
+  \coordinate (1) at (#1, #1 + .7 * #1);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) + .7 * #1}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 + .7 * #1) {};
+  \node(BL) at (#1, #1 + .7 * #1) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) + .7 * #1}) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=-1pt,yshift=-24pt]2}]{};
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center) node[label={[xshift=1pt,yshift=-24pt]2}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi  \end{scope}
+  \end{tikzpicture}
+}
+
+\NewDocumentCommand{\airhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center) node[label={[xshift=1pt,yshift=5pt]1}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center) node[label={[xshift=-1pt,yshift=5pt]1}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - #1);
+  \coordinate (1) at (#1, #1 - #1);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - #1}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - #1) {};
+  \node(BL) at (#1, #1 - #1) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - #1}) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=0pt,yshift=-32pt]2}]{};
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center) node[label={[xshift=0pt,yshift=-32pt]2}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\earthhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.65 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center) node[label={[xshift=-7pt,yshift=13pt]1}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center) node[label={[xshift=5pt,yshift=12pt]1}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=5pt,yshift=-32pt]2}]{};
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center) node[label={[xshift=-4pt,yshift=-32pt]2}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi  \end{scope}
+  \end{tikzpicture}
+}
+
+\NewDocumentCommand{\firehexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0 + .5);
+  \coordinate (1) at (#1, 0 + .5);
+  \coordinate (2) at (#1/ 2, {.5 + (#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0 + .5) {};
+  \node(B) at (#1, 0 + .5) {};
+  \node(C) at (#1 / 2, {.5 + (#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center) node[label={[xshift=4pt,yshift=1pt]1}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center) node[label={[xshift=-4pt,yshift=1pt]1}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, #1 * .86); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,0) {};
+  \node(BL) at (#1, 0) {};
+  \node(CL) at (#1 / 2, #1 * .86) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center) node[label={[xshift=4pt,yshift=1pt]2}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=-4pt,yshift=1pt]2}]{};
+  \else
+  \draw (CL.center) -- (AL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\planetaryhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node[label=left:\Mercury](A) at (0,0) {};
+  \node[label=right:\Venus](B) at (#1, 0) {};
+  \node[label=above:\Saturn](C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \draw (B.center) -- (C.center);
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL)[label=left:\Mars] at (0,#1 - 0.5) {};
+  \node(BL)[label=right:\Jupiter] at (#1, #1 - 0.5) {};
+  \node(CL)[label=below:\Moon] at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \draw (AL.center) -- (CL.center);
+  \draw (BL.center) -- (CL.center);
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\marshexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (B.center) -- (A.center) node[label={[xshift=06pt,yshift=12pt]1}]{};
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (B.center) -- (C.center) node[label={[xshift=15pt,yshift=-30pt]2}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (AL.center) -- (BL.center) node[label={[xshift=-10pt,yshift=-34pt]2}]{};
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (AL.center) -- (CL.center) node[label={[xshift=-17pt,yshift=05pt]1}]{};
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\jupiterhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (A.center) -- (B.center) node[label={[xshift=-26pt,yshift=-14pt]2}]{};
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \draw (B.center) -- (C.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (A.center) -- (C.center) node[label={[xshift=-16pt,yshift=-28pt]2}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (BL.center) -- (AL.center) node[label={[xshift=08pt,yshift=-07pt]1}]{};
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \draw (AL.center) -- (CL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (BL.center) -- (CL.center) node[label={[xshift=16pt,yshift=07pt]1}]{} ;
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\sunhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.7 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \draw (B.center) -- (C.center);
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \draw (AL.center) -- (CL.center);
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\venushexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (B.center) -- (A.center) node[label={[xshift=26pt,yshift=-17pt]1}]{} ;
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (B.center) -- (C.center) node[label={[xshift=18pt,yshift=-30pt]1}]{} ;
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \draw (C.center) -- (A.center);
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (AL.center) -- (BL.center) node[label={[xshift=-24pt,yshift=-03pt]2}]{} ;
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (AL.center) -- (CL.center) node[label={[xshift=-18pt,yshift=8pt]2}]{} ;
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \draw (BL.center) -- (CL.center);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\mercuryhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}]  (A.center) -- (B.center) node[label={[xshift=-23pt,yshift=-17pt]1}]{};
+  \else
+  \draw (A.center) -- (B.center);
+  \fi
+  \draw (B.center) -- (C.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (A.center) -- (C.center) node[label={[xshift=-17pt,yshift=-28pt]1}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \ifnum #2=1
+  \draw[postaction={decorate}] (BL.center) -- (AL.center) node[label={[xshift=08pt,yshift=-04pt]2}]{};
+  \else
+  \draw (AL.center) -- (BL.center);
+  \fi
+  \draw (AL.center) -- (CL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (BL.center) -- (CL.center) node[label={[xshift=18pt,yshift=05pt]2}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\moonhexagram}{
+  mO{0}
+  }{
+  \begin{tikzpicture}[remember picture]
+  \begin{scope}[thick,decoration={
+        markings,
+        mark=at position 0.6 with -{\arrow{Latex[length=2.5mm]}}}
+    ]
+  % Upper
+  \coordinate (0) at (0, 0);
+  \coordinate (1) at (#1, 0);
+  \coordinate (2) at (#1/ 2, {(#1 * .86)}); % sqrt(3)/2 ~= 0.86
+  \node(A) at (0,0) {};
+  \node(B) at (#1, 0) {};
+  \node(C) at (#1 / 2, {(#1 * .86)}) {};
+  \draw (A.center) -- (B.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (C.center) -- (B.center) node[label={[xshift=-00pt,yshift=-0pt]2}]{};
+  \else
+  \draw (B.center) -- (C.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (C.center) -- (A.center) node[label={[xshift=-00pt,yshift=-0pt]2}]{};
+  \else
+  \draw (C.center) -- (A.center);
+  \fi
+
+  % Lower
+  \coordinate (0) at (0, #1 - 0.5);
+  \coordinate (1) at (#1, #1 - 0.5);
+  \coordinate (2) at (#1/ 2, {#1 - (#1 * .86) - 0.5}); % sqrt(3)/2 ~= 0.86
+  \node(AL) at (0,#1 - 0.5) {};
+  \node(BL) at (#1, #1 - 0.5) {};
+  \node(CL) at (#1 / 2, {#1 - (#1 * .86) - 0.5}) {};
+  \draw (AL.center) -- (BL.center);
+  \ifnum #2=-1
+  \draw[postaction={decorate}] (CL.center) -- (AL.center) node[label={[xshift=-00pt,yshift=-20pt]1}]{};
+  \else
+  \draw (AL.center) -- (CL.center);
+  \fi
+  \ifnum #2=1
+  \draw[postaction={decorate}] (CL.center) -- (BL.center) node[label={[xshift=-00pt,yshift=-20pt]1}]{};
+  \else
+  \draw (BL.center) -- (CL.center);
+  \fi
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\aversepentagram}{
+  mO{-1}% size
+}{
+  \begin{tikzpicture}
+    \coordinate (0) at (0, -#1);
+    \node(Spirit) at (0, -#1) {};
+
+    \coordinate (1) at ({-cos(54) * -#1},{-sin(54) * -#1});
+    \node(Earth) at ({-cos(54) * -#1},{-sin(54) * -#1}) {};
+
+    \coordinate (2) at ({-#1 * cos(18)},{-#1 * sin(18)});
+    \node(Water) at ({-#1 * cos(18)},{-#1 * sin(18)}) {};
+
+    \coordinate (3) at ({#1 * cos(18)},{-#1 * sin(18)});
+    \node(Air) at ({#1 * cos(18)},{-#1 * sin(18)}) {};
+
+    \coordinate (5) at ({cos(54) * -#1},{sin(54) * #1});
+    \node(Fire) at ({cos(54) * -#1},{sin(54) * #1}) {};
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.65 with -{\arrow{Latex[length=2mm]}}}
+      ]
+
+    \ifnum #2=0
+    \draw[postaction={decorate}] (Spirit.center) -- (Earth.center);
+    \else
+    \draw[-] (Earth.center) -- (Spirit.center);
+    \fi
+
+    \ifnum #2=1
+    \draw[postaction={decorate}] (Earth.center) -- (Water.center);
+    \else
+    \draw[-] (Earth.center) -- (Water.center);
+    \fi
+
+    \ifnum #2=2
+    \draw[postaction={decorate}] (Water.center) -- (Air.center);
+    \else
+    \draw[-] (Water.center) -- (Air.center);
+    \fi
+
+    \ifnum #2=3
+    \draw[postaction={decorate}] (Air.center) -- (Water.center);
+    \fi
+    \draw[-] (Air.center) -- (Fire.center);
+
+    \ifnum #2=4
+    \draw[postaction={decorate}] (Spirit.center) -- (Fire.center);
+    \else
+    \draw[-] (Fire.center) -- (Spirit.center);
+    \fi
+    \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\unicursalhexagram}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \begin{scope}[thick,decoration={
+          markings,
+          mark=at position 0.5 with -{\arrowreversed{Latex[length=2mm]}}}
+      ]
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) edge[decorate] (0, 1.2 * #1) -- (0, 1.2 * #1);
+  \end{scope}
+  \end{tikzpicture}
+}
+\NewDocumentCommand{\unicursalhexagramplain}{
+  m % size
+}{
+  \begin{tikzpicture}
+    \draw[black,line width=.2mm] (0,1.2 * #1) -- (-1.15 * #1,-.65 * #1) -- (1.15 * #1,.65 * #1) -- (0,-1.2 * #1) -- (-1.15 * #1,.65 * #1) -- (1.15 * #1,-.65 * #1) -- (0, 1.2 * #1);
+  \end{tikzpicture}
+}
